@@ -9,7 +9,6 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const token = localStorage.getItem('sky_chat_token');
     if (token) {
-      // Validate token
       fetch('/api/auth/session', {
         headers: { 'Authorization': `Bearer ${token}` }
       })
