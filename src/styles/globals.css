@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply box-border; }
+  body {
+    @apply bg-background text-text-main font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-background; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-elevated; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .glass-strong {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  .gradient-btn {
+    @apply bg-gradient-to-r from-primary to-[#FF8E53] text-white font-semibold 
+           shadow-lg shadow-primary/30 hover:shadow-primary/50 
+           transition-all duration-200 active:scale-95;
+  }
+  .glow-pink {
+    box-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+  }
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+  }
+  .bubble-sent {
+    @apply bg-gradient-to-br from-primary to-[#FF8E53] rounded-2xl rounded-tr-sm 
+           px-4 py-2 max-w-[80%] ml-auto;
+  }
+  .bubble-received {
+    @apply glass rounded-2xl rounded-tl-sm px-4 py-2 max-w-[80%];
+  }
+  .input-glass {
+    @apply glass rounded-xl px-4 py-3 text-text-main placeholder-text-muted
+           focus:outline-none focus:border-primary/50 transition-all;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+}
