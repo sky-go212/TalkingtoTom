@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0A0A0F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="Talking to Tom - Private Chat Without Phone Numbers" />
+
+  <link rel="icon" type="image/png" href="/icons/icon-72.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <title>Talking to Tom</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #splash-root {
+      position: fixed; inset: 0; background: #0A0A0F;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999; transition: opacity 0.5s ease-out;
+    }
+    #splash-root.hidden { opacity: 0; pointer-events: none; }
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(255,107,157,0.4)); }
+      50% { filter: drop-shadow(0 0 40px rgba(255,107,157,0.7)); }
+    }
+    .splash-logo { animation: pulse-glow 2s infinite; }
+  </style>
+</head>
+<body>
+  <div id="splash-root">
+    <img src="/icons/icon-512.png" alt="Talking to Tom" class="splash-logo"
+         style="width: 40%; max-width: 200px;" />
+  </div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
